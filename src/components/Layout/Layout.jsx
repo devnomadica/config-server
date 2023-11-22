@@ -37,7 +37,7 @@ const Layout = () => {
   }, []);
 
   const handleSearch = useCallback(
-    (term) => {
+    async (term) => {
       if (!term.trim()) {
         console.warn('Search term is empty.');
         return;
@@ -46,7 +46,7 @@ const Layout = () => {
       setLoading(true);
       setSearchResults([]);
       setCompletedSearches(0);
-      setFinalMessage(''); // Clear the final message before starting a new search
+      setFinalMessage('');
 
       let completedRequests = 0;
       let successfulSearches = 0;
@@ -64,7 +64,7 @@ const Layout = () => {
             setFinalMessage(`Search in ${successfulSearches} from ${selectedRepos.length} here are the results.`);
           }
         }).catch(error => {
-          console.error('Error during search for repo:', repoIdentifier, error);
+          console.error('Error during search:', error);
           completedRequests++;
           setCompletedSearches(completedRequests);
           if (completedRequests === selectedRepos.length) {
@@ -97,13 +97,15 @@ const Layout = () => {
         />
       </div>
       <div className={styles.content}>
-        <SearchResult
-          results={searchResults}
-          selectedRepos={selectedRepos}
-        />
         {finalMessage && !loading && (
           <p className={styles.finalMessage}>{finalMessage}</p>
         )}
+        <div className={styles.results}>
+          <SearchResult
+            results={searchResults}
+            selectedRepos={selectedRepos}
+          />
+        </div>
       </div>
     </div>
   );

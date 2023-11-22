@@ -1,57 +1,54 @@
 .layout {
   display: flex;
-  flex-direction: row; /* Changed to row for a side-by-side layout */
+  flex-direction: row;
   height: 100vh;
 }
 
 .header {
   padding: 20px;
   background: #f8f9fa;
-  position: fixed; /* Make the header fixed at the top */
-  width: 100%; /* Header should span the full width */
+  position: fixed;
+  width: 100%;
   top: 0;
-  z-index: 1000; /* Ensure header is above other content */
+  z-index: 1000;
 }
 
 .sidebar {
   background: #efefef;
   padding: 20px;
-  width: 250px; /* Adjust width as needed */
-  overflow-y: auto; /* Allows scrolling if the content is taller than the viewport */
-  position: fixed; /* Make the sidebar fixed to scroll independently */
-  top: 60px; /* Adjust to the height of your header */
-  bottom: 0; /* Stretch to the bottom */
+  width: 250px;
+  overflow-y: auto;
+  position: fixed;
+  top: 60px;
+  bottom: 0;
 }
 
 .content {
-  margin-left: 270px; /* Adjust this value to match the sidebar width */
-  margin-top: 60px; /* Adjust to the height of your header */
+  margin-left: 270px;
+  margin-top: 60px;
   padding: 20px;
-  overflow-y: auto; /* Allows scrolling of content */
-  width: calc(100% - 270px); /* Adjust width based on the sidebar */
+  padding-bottom: 40px; /* Extra padding at the bottom */
+  overflow-y: auto;
+  width: calc(100% - 270px);
 }
 
 .results {
   margin-top: 20px;
 }
 
-/* Additional styling for repository filter items */
-.repoItem {
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 10px;
+.finalMessage {
+  margin-bottom: 20px; /* Spacing below the final message */
+  /* Add any additional styling for the final message here */
 }
 
-/* Responsive styling if needed */
+/* Existing responsive styles */
 @media (max-width: 768px) {
   .sidebar,
   .content {
     width: 100%;
     margin-left: 0;
     padding: 10px;
-    position: static; /* Reset the fixed position */
+    position: static;
   }
 
   .header {
@@ -59,8 +56,8 @@
   }
 
   .content {
-    margin-top: 0; /* Reset the top margin */
+    margin-top: 0;
   }
 }
 
-/* Add additional styling as needed */
+/* Additional styles */
