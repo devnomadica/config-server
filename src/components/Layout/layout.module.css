@@ -1,0 +1,66 @@
+.layout {
+  display: flex;
+  flex-direction: row; /* Changed to row for a side-by-side layout */
+  height: 100vh;
+}
+
+.header {
+  padding: 20px;
+  background: #f8f9fa;
+  position: fixed; /* Make the header fixed at the top */
+  width: 100%; /* Header should span the full width */
+  top: 0;
+  z-index: 1000; /* Ensure header is above other content */
+}
+
+.sidebar {
+  background: #efefef;
+  padding: 20px;
+  width: 250px; /* Adjust width as needed */
+  overflow-y: auto; /* Allows scrolling if the content is taller than the viewport */
+  position: fixed; /* Make the sidebar fixed to scroll independently */
+  top: 60px; /* Adjust to the height of your header */
+  bottom: 0; /* Stretch to the bottom */
+}
+
+.content {
+  margin-left: 270px; /* Adjust this value to match the sidebar width */
+  margin-top: 60px; /* Adjust to the height of your header */
+  padding: 20px;
+  overflow-y: auto; /* Allows scrolling of content */
+  width: calc(100% - 270px); /* Adjust width based on the sidebar */
+}
+
+.results {
+  margin-top: 20px;
+}
+
+/* Additional styling for repository filter items */
+.repoItem {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Responsive styling if needed */
+@media (max-width: 768px) {
+  .sidebar,
+  .content {
+    width: 100%;
+    margin-left: 0;
+    padding: 10px;
+    position: static; /* Reset the fixed position */
+  }
+
+  .header {
+    position: static;
+  }
+
+  .content {
+    margin-top: 0; /* Reset the top margin */
+  }
+}
+
+/* Add additional styling as needed */
